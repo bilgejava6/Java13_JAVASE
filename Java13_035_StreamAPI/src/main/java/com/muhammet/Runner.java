@@ -270,12 +270,12 @@ public class Runner {
         System.out.println("Map İsim Listesi: " + mapIsimListesi);
 
         mList = List.of(
-                new Musteri("Muhammet","Karakaya","Ankara"),
-                new Musteri("Ali","Karakaya","Ankara"),
-                new Musteri("Deniz", "Kaptan", "İstanbul"),
-                new Musteri("Veli", "Kaptan", "İstanbul"),
-                new Musteri("Bahar","KAŞIKÇI","İzmir"),
-                new Musteri("Turan","Kahya","Ankara")
+                new Musteri("Muhammet","Karakaya","Ankara",45),
+                new Musteri("Ali","Karakaya","Ankara",69),
+                new Musteri("Deniz", "Kaptan", "İstanbul",98),
+                new Musteri("Veli", "Kaptan", "İstanbul",123),
+                new Musteri("Bahar","KAŞIKÇI","İzmir",45),
+                new Musteri("Turan","Kahya","Ankara",670)
         );
         Map<String, List<Musteri>> sehirMusteriMapListesi = mList.stream()
                 .collect(Collectors.groupingBy(Musteri::getSehir));
@@ -285,13 +285,13 @@ public class Runner {
                 .collect(Collectors.groupingBy(Musteri::getSehir, Collectors.summingInt(x-> 1)));
         System.out.println("Şehir Musteri Sayısı Map Listesi: " + sehirMusteriSayisiMapListesi);
 
-        TreeMap<String,Integer> sehirMusteriSayisiTreeMapListesi = mList.stream()
+        TreeMap<String,Integer> sehirMusteriTotalTutarTreeMapListesi = mList.stream()
                 .collect(Collectors.groupingBy(
                         Musteri::getSehir,
                         TreeMap::new,
-                        Collectors.summingInt(x-> 1)
+                        Collectors.summingInt(Musteri::getTotalSatis)
                 ));
-        System.out.println("Şehir Musteri Sayısı TreeMap Listesi: " + sehirMusteriSayisiTreeMapListesi);
+        System.out.println("Şehre göre müşterilerin toplam satışları TreeMap Listesi: " + sehirMusteriTotalTutarTreeMapListesi);
 
     }
 }
@@ -300,7 +300,7 @@ class Musteri{
     String ad;
     String soyad;
     String sehir;
-
+    Integer totalSatis;
     @Override
     public String toString() {
         return "Musteri{" +
@@ -310,11 +310,29 @@ class Musteri{
                 '}';
     }
 
+    public Musteri(String ad, String soyad, String sehir,Integer totalSatis) {
+        this.ad = ad;
+        this.soyad = soyad;
+        this.sehir = sehir;
+        this.totalSatis = totalSatis;
+    }
+
     public Musteri(String ad, String soyad, String sehir) {
         this.ad = ad;
         this.soyad = soyad;
         this.sehir = sehir;
+
     }
+
+
+    public Integer getTotalSatis() {
+        return totalSatis;
+    }
+
+    public void setTotalSatis(Integer totalSatis) {
+        this.totalSatis = totalSatis;
+    }
+
     public String getAd() {
         return ad;
     }
