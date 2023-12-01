@@ -15,9 +15,6 @@ public class UserRepository {
      * Delete
      *
      */
-
-
-
     public void save(User user){
         USERLIST.add(user);
     }
@@ -67,6 +64,19 @@ public class UserRepository {
         return USERLIST.stream().filter(x-> x.getUserName().contains(userName)).toList();
     }
 
+    public Optional<User> findByUserNameAndPassword(String userName, String password){
+        /**
+         * filter ->
+         * hiç kayıt bulamadı -> [] boş liste -> Optional.empty()
+         * 1 kayıt buldu -> [User] tek elemanlı liste -> Optional.of(User)
+         * 1 den fazla kayıt buldu -> [User1, User2, User3] çok elemanlı liste -> Optional.of(User1)
+         *
+         * ["ahmet","ali","ayten","kenan","kemal","ayşe","ayşenur","ayşegül","ayşen","ayşe"]
+         *
+         *
+         */
+      return USERLIST.stream().filter(x-> x.getUserName().equals(userName) && x.getPassword().equals(password)).findFirst();
+    }
 
 
 }
