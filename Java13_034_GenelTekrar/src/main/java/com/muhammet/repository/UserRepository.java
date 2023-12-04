@@ -78,5 +78,17 @@ public class UserRepository {
       return USERLIST.stream().filter(x-> x.getUserName().equals(userName) && x.getPassword().equals(password)).findFirst();
     }
 
+    /**
+     * Kullanıcı adı daha önce alınmış mı?
+     * @param userName
+     * @return
+     */
+    public boolean existByUserName(String userName){
+        if(USERLIST.stream().filter(u-> u.getUserName().equals(userName))
+                .findFirst().isEmpty())
+            return false;
+
+        return true;
+    }
 
 }

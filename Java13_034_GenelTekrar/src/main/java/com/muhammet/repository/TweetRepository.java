@@ -15,4 +15,8 @@ public class TweetRepository {
     public List<Tweet> findAll(){
         return TWEETLIST;
     }
+
+    public List<Tweet> findAllByUserId(String userId){
+        return TWEETLIST.stream().filter(t-> t.getUserUuid().equals(userId)).toList();
+    }
 }

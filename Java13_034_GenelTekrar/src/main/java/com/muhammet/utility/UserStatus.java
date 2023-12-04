@@ -1,2 +1,7 @@
-package com.muhammet.utility;public enum UserStatus {
+package com.muhammet.utility;
+
+public enum UserStatus {
+    BLOKE,
+    AKTIF,
+    SILINMIS
 }

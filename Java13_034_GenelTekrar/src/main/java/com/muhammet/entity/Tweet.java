@@ -12,14 +12,15 @@ public class Tweet {
     int retweetCount;
 
     public Tweet(String tweet, String userUuid, String mediaUrl) {
+        this();
         this.tweet = tweet;
         this.userUuid = userUuid;
         this.mediaUrl = mediaUrl;
-        this.uuid = UUID.randomUUID().toString();
-        this.date = System.currentTimeMillis();
     }
 
     public Tweet() {
+        this.uuid = UUID.randomUUID().toString();
+        this.date = System.currentTimeMillis();
     }
 
     public String getUuid() {

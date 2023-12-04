@@ -1,5 +1,7 @@
 package com.muhammet.entity;
 
+import com.muhammet.utility.UserStatus;
+
 import java.util.UUID;
 
 public class User {
@@ -8,7 +10,7 @@ public class User {
     String password;
     String name;
     Long memberDate;
-
+    UserStatus status;
     @Override
     public String toString() {
         return "User{" +
