@@ -14,6 +14,7 @@
 ### Kullanıcı Birimi Hataları (User Microservice)
 
     1 0 0 0 -> Kullanıcı birimi User Servis hata kodu
+    
     1 0 0 1 -> Kullanıcı birimi User Servis Kullanıcı bulunamadı hatası
 
 

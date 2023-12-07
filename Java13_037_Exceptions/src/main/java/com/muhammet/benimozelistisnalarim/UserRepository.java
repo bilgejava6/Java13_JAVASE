@@ -22,7 +22,7 @@ public class UserRepository {
                 .filter(u-> u.getName().equalsIgnoreCase(userName))
                 .findFirst();
         if(user.isEmpty())
-            throw new BenimUserException("Kullanıcı bulunamadı");
+            throw new BenimUserException(ErrorType.REPOSITORY_USER_NOTFOUND);
         return user.get();
     }
 }
