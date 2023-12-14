@@ -1,2 +1,4 @@
-package com.muhammet.RepositoryOrnek.entity;public class Customer {
+package com.muhammet.RepositoryOrnek.entity;
+
+public class Customer {
 }

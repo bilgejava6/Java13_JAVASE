@@ -1,2 +1,4 @@
-package com.muhammet.RepositoryOrnek.entity;public class Product {
+package com.muhammet.RepositoryOrnek.entity;
+
+public class Product {
 }

@@ -1,6 +1,14 @@
 package com.muhammet;
 
 public class Runner_Kavramlar {
+    /**
+     * CPU -> İşlemci
+     * 1x Çekirdek -> 5.5GHZ
+     * 10X Çekirdek -> 2.7GHZ
+     * 1 çekirdek -> 20X biter
+     * 10 Çekirdek -> 3-4X bitmez
+     *
+     */
     public static void main(String[] args) {
         System.out.println("Uygulama Başladı");
         MyThread myThread = new MyThread();
@@ -10,7 +18,6 @@ public class Runner_Kavramlar {
         thread.start();
         System.out.println("UYULAMA BİTTİ.");
     }
-
 }
 
 /**

@@ -1,3 +1,5 @@
+package com.muhammet;
+
 public class Runner_002 {
     public static void main(String[] args) {
         int s1 = 5, s4 = 2, s3=6;

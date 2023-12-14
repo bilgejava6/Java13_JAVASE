@@ -1,2 +1,7 @@
-package com.muhammet.factoryDesignPattern;public enum TasimaTipi {
+package com.muhammet.factoryDesignPattern;
+
+public enum TasimaTipi {
+    KARA,
+    HAVA,
+    DENIZ
 }
