@@ -89,7 +89,21 @@ public class Runner_Odev {
     }
 
     private static void ogrenciGuncelle(){
-        new OgrenciRepository().update(null);
+        System.out.print("Öğrenci adı.................: ");
+        int id = new Scanner(System.in).nextInt();
+        System.out.print("Öğrenci adı.................: ");
+        String ad = new Scanner(System.in).nextLine();
+        System.out.print("Öğrenci soyadı..............: ");
+        String soyad = new Scanner(System.in).nextLine();
+        System.out.print("Öğrenci veli adı.............: ");
+        String veliadi = new Scanner(System.in).nextLine();
+        System.out.print("Öğrenci yaşı.................: ");
+        int yas = new Scanner(System.in).nextInt();
+        System.out.print("Öğrenci iletisim telefonu.....: ");
+        String iletisimtel = new Scanner(System.in).nextLine();
+        new OgrenciRepository()
+                .update(new Ogrenci(id,ad,soyad,veliadi,yas,iletisimtel));
+
     }
 
     private static void ogrenciListele(){

@@ -13,26 +13,27 @@ public class OgrenciRepository {
         crud = new CRUD("OkulDB");
     }
     public void save(Ogrenci ogrenci){
-        String sql = "insert into tblogrenci(ad,soyad,yas,veliadi,iletisimtel) values(" +
-                "'"
-                +ogrenci.getAd()+"','"
-                +ogrenci.getSoyad()+"',"
-                +ogrenci.getYas()+",'"
-                +ogrenci.getVeliadi()+"','"
-                +ogrenci.getIletisimtel()+"'" +
-                ")";
-        crud.executeUpdate(sql);
+//        String sql = "insert into tblogrenci(ad,soyad,yas,veliadi,iletisimtel) values(" +
+//                "'"
+//                +ogrenci.getAd()+"','"
+//                +ogrenci.getSoyad()+"',"
+//                +ogrenci.getYas()+",'"
+//                +ogrenci.getVeliadi()+"','"
+//                +ogrenci.getIletisimtel()+"'" +
+//                ")";
+       crud.executeUpdate(SQLQueryBuilder.generateInsert(ogrenci,"tblogrenci"));
     }
 
     public void update(Ogrenci ogrenci){
-        String sql = "update tblogrenci set " +
-                "ad='"+ogrenci.getAd()
-                +"',soyad='"+ogrenci.getSoyad()
-                +"',yas="+ogrenci.getYas()
-                +",veliadi='"+ogrenci.getVeliadi()
-                +"',iletisimtel='"+ogrenci.getIletisimtel()
-                +"' where id="+ogrenci.getId();
-        crud.executeUpdate(sql);
+//        String sql = "update tblogrenci set " +
+//                "ad='"+ogrenci.getAd()
+//                +"',soyad='"+ogrenci.getSoyad()
+//                +"',yas="+ogrenci.getYas()
+//                +",veliadi='"+ogrenci.getVeliadi()
+//                +"',iletisimtel='"+ogrenci.getIletisimtel()
+//                +"' where id="+ogrenci.getId();
+//        crud.executeUpdate(sql);
+        crud.executeUpdate(SQLQueryBuilder.generateUpdate(ogrenci,"tblogrenci"));
     }
 
     public void delete(int id){
