@@ -3,7 +3,9 @@ package com.muhammet;
 import com.muhammet.entity.Ders;
 import com.muhammet.entity.Ogrenci;
 import com.muhammet.repository.DersRepository;
+import com.muhammet.repository.DersRepository2;
 import com.muhammet.repository.OgrenciRepository;
+import com.muhammet.repository.OgrenciRepository2;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -63,14 +65,14 @@ public class Runner_Odev {
     }
 
     private static void dersListele() {
-        new DersRepository().findAll().forEach(System.out::println);
+        new DersRepository2().findAll().forEach(System.out::println);
     }
 
     private static void dersEkle() {
         System.out.print("Ders adı.....: ");
         String ad = new Scanner(System.in).nextLine();
         Ders ders = new Ders(ad);
-        new DersRepository().save(ders);
+        new DersRepository2().save(ders);
     }
 
     private static void ogrenciEkle(){
@@ -84,7 +86,7 @@ public class Runner_Odev {
         int yas = new Scanner(System.in).nextInt();
         System.out.print("Öğrenci iletisim telefonu.....: ");
         String iletisimtel = new Scanner(System.in).nextLine();
-        new OgrenciRepository()
+        new OgrenciRepository2()
                .save(new Ogrenci(ad,soyad,veliadi,yas,iletisimtel));
     }
 
@@ -101,12 +103,13 @@ public class Runner_Odev {
         int yas = new Scanner(System.in).nextInt();
         System.out.print("Öğrenci iletisim telefonu.....: ");
         String iletisimtel = new Scanner(System.in).nextLine();
-        new OgrenciRepository()
+        new OgrenciRepository2()
                 .update(new Ogrenci(id,ad,soyad,veliadi,yas,iletisimtel));
+
 
     }
 
     private static void ogrenciListele(){
-       new OgrenciRepository().findAll().forEach(System.out::println);
+       new OgrenciRepository2().findAll().forEach(System.out::println);
     }
 }

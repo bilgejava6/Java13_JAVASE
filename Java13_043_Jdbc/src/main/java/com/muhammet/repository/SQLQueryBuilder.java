@@ -2,6 +2,7 @@ package com.muhammet.repository;
 
 import java.lang.reflect.Field;
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -19,6 +20,8 @@ public class SQLQueryBuilder {
      * @param entity -> herhangi bir varlık nesnesini sağlayınız
      * @param tableName -> insert işlemi yapılacak tablo adını giriniz.
      * @return -> SQL komut cümlesi geri döner
+     *
+     * Java Reflection
      */
     public static String generateInsert(Object entity, String tableName){
         /**
@@ -147,8 +150,42 @@ public class SQLQueryBuilder {
         return query.toString();
     }
 
-    public static <T> List<T> generateList(Class<T> entityClass, String tableName){
+    public static <T> List<T> generateList(Class<T> entityClass, String tableName, ResultSet resultSet){
       List<T> resultList = new ArrayList<>();
+      try {
+          while (resultSet.next()){
+              /**
+               * method içine geçilen nesnenin kurucu methodunu çağırarak yeni bir nese yaratıyoruz.
+               */
+                T entity = entityClass.getDeclaredConstructor().newInstance();
+              /**
+               * gelen nesnenin içindeki tüm değişkenleri tek tek dolaşarak oluşturduğumuz nesnenin
+               * içine result set içindeki bilgileri yerleştiriyoruyz.
+               */
+              for(Field field: entityClass.getDeclaredFields()){
+                  /**,
+                   * private alanları public e çeviriyoruz
+                   */
+                    field.setAccessible(true);
+                  /**
+                   * nesne içindeki alan(değişkenin) adını alıyoruız.
+                   */
+                  String fieldName = field.getName();
+                  /**
+                   * resultset içinde gelen o an üzerinde bulunduğumuz satırdaki ilgili alanın
+                   * değerini okuyoruz.
+                   */
+                  Object value = resultSet.getObject(fieldName);
+                  /**
+                   * okuduğumuz değeri yeni oluşturduğumuz entity nesnesinin ilgili alanına set ediyoruz.
+                   */
+                  field.set(entity,value);
+                }
+              resultList.add(entity);
+          }
+      }catch (Exception exception){
+
+      }
 
       return resultList;
     }

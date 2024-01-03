@@ -1,2 +1,6 @@
-package com.muhammet.entity;public class Comment {
+package com.muhammet.entity;
+
+public class Comment {
+
+
 }

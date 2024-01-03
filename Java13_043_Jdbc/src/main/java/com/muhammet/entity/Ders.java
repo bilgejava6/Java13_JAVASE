@@ -1,8 +1,12 @@
 package com.muhammet.entity;
 
+import java.sql.ResultSet;
+
 public class Ders {
     int id;
     String ad;
+
+
 
     @Override
     public String toString() {

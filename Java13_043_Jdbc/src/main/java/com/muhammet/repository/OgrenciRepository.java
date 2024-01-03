@@ -21,7 +21,9 @@ public class OgrenciRepository {
 //                +ogrenci.getVeliadi()+"','"
 //                +ogrenci.getIletisimtel()+"'" +
 //                ")";
-       crud.executeUpdate(SQLQueryBuilder.generateInsert(ogrenci,"tblogrenci"));
+        String sql2 =
+                SQLQueryBuilder.generateInsert(ogrenci,"tblogrenci");
+       crud.executeUpdate(sql2);
     }
 
     public void update(Ogrenci ogrenci){
@@ -43,21 +45,22 @@ public class OgrenciRepository {
 
     public List<Ogrenci> findAll(){
         rs =  crud.getAllTableRows("select * from tblogrenci");
-        List<Ogrenci> ogrenciList = new ArrayList<>();
-        try{
-            while (rs.next()){
-                int id = rs.getInt("id");
-                String ad = rs.getString("ad");
-                String soyad = rs.getString("soyad");
-                String veliadi = rs.getString("veliadi");
-                String iletisimtel = rs.getString("iletisimtel");
-                int yas = rs.getInt("yas");
-                Ogrenci ogrenci = new Ogrenci(id,ad,soyad,veliadi,yas,iletisimtel);
-                ogrenciList.add(ogrenci);
-            }
-            return ogrenciList;
-        }catch (Exception exception){
-            return ogrenciList;
-        }
+//        List<Ogrenci> ogrenciList = new ArrayList<>();
+//        try{
+//            while (rs.next()){
+//                int id = rs.getInt("id");
+//                String ad = rs.getString("ad");
+//                String soyad = rs.getString("soyad");
+//                String veliadi = rs.getString("veliadi");
+//                String iletisimtel = rs.getString("iletisimtel");
+//                int yas = rs.getInt("yas");
+//                Ogrenci ogrenci = new Ogrenci(id,ad,soyad,veliadi,yas,iletisimtel);
+//                ogrenciList.add(ogrenci);
+//            }
+//            return ogrenciList;
+//        }catch (Exception exception){
+//            return ogrenciList;
+//        }
+      return SQLQueryBuilder.generateList(Ogrenci.class,"tblogrenci",rs);
     }
 }
