@@ -20,6 +20,7 @@ public class RepositoryManager<T,ID> implements ICrud<T,ID>{
     private final T t;
     public RepositoryManager(T t){
         emf = Persistence.createEntityManagerFactory("CRM");
+        em = emf.createEntityManager();
         this.t = t;
     }
 
