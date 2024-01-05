@@ -1,2 +1,4 @@
-package com.muhammet.entity;public class Adres {
+package com.muhammet.entity;
+
+public class Adres {
 }

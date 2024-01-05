@@ -11,14 +11,14 @@
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>com.muhammet.entity.User</class>
-
+        <class>com.munammet.entity.Musteri</class>
+        <class>com.munammet.entity.Satis</class>
         <properties>
             <property name="jakarta.persistence.jdbc.driver"
                       value="org.postgresql.Driver" />
 
             <property name="jakarta.persistence.jdbc.url"
-                      value="jdbc:postgresql://localhost:5432/HibernateTestDB" />
+                      value="jdbc:postgresql://localhost:5432/hb1" />
 
             <property name="jakarta.persistence.jdbc.user"
                       value="postgres" />

@@ -1,2 +1,9 @@
-package com.muhammet.repository;public class PcRepository {
+package com.muhammet.repository;
+
+import com.muhammet.entity.Pc;
+
+public class PcRepository extends RepositoryManager<Pc,Long> {
+    public PcRepository(){
+        super(new Pc());
+    }
 }

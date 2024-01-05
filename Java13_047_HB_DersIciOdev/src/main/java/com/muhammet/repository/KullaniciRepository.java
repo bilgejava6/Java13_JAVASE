@@ -1,2 +1,10 @@
-package com.muhammet.repository;public class KullaniciRepository {
+package com.muhammet.repository;
+
+import com.muhammet.entity.Kullanici;
+
+public class KullaniciRepository extends RepositoryManager<Kullanici,Long> {
+    public KullaniciRepository(){
+        super(new Kullanici());
+    }
+
 }
