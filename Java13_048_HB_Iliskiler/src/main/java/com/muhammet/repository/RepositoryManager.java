@@ -32,6 +32,7 @@ public class RepositoryManager<T,ID> implements ICrud<T,ID>{
     private void closeSession(){
         em.getTransaction().commit();
         em.close();
+
     }
 
     @Override

@@ -1,2 +1,4 @@
-package com.muhammet.entity;public class Post {
+package com.muhammet.entity;
+
+public class Post {
 }

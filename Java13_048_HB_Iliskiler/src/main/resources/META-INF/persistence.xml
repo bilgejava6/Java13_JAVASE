@@ -11,9 +11,12 @@
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>com.muhammet.entity.Bilesen</class>
-        <class>com.muhammet.entity.Kullanici</class>
-        <class>com.muhammet.entity.Pc</class>
+        <class>com.muhammet.entity.Personel</class>
+        <class>com.muhammet.entity.Adres</class>
+        <class>com.muhammet.entity.Resim</class>
+        <class>com.muhammet.entity.Kategori</class>
+        <class>com.muhammet.entity.Urun</class>
+        <class>com.muhammet.entity.Araba</class>
 
 
         <properties>
@@ -21,7 +24,7 @@
                       value="org.postgresql.Driver" />
 
             <property name="jakarta.persistence.jdbc.url"
-                      value="jdbc:postgresql://localhost:5432/HbOrnek1" />
+                      value="jdbc:postgresql://localhost:5432/HBPersonel" />
 
             <property name="jakarta.persistence.jdbc.user"
                       value="postgres" />
