@@ -1,6 +1,5 @@
 package com.muhammet.repository;
 
-import com.muhammet.entity.BaseEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.NoResultException;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class RepositoryManager<T extends BaseEntity,ID> implements ICrud<T,ID>{
+public class RepositoryManager<T,ID> implements ICrud<T,ID>{
     private final EntityManagerFactory emf;
     private EntityManager em;
     private final T t;
@@ -40,10 +39,7 @@ public class RepositoryManager<T extends BaseEntity,ID> implements ICrud<T,ID>{
     public T save(T entity) {
        try{
          openSession();
-         entity.setCreateat(System.currentTimeMillis());
-         entity.setUpdateat(System.currentTimeMillis());
-         entity.setState(1);
-         em.persist(entity);
+                em.persist(entity);
          closeSession();
        }catch (Exception exception){
         if (em.isOpen())

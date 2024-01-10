@@ -11,10 +11,10 @@
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>com.muhammet.entity.Kurs</class>
-        <class>com.muhammet.entity.Kategori</class>
-        <class>com.muhammet.entity.Adres</class>
-        <class>com.muhammet.entity.Kursiyer</class>
+        <class>com.muhammet.entity.Contact</class>
+        <class>com.muhammet.entity.Lesson</class>
+        <class>com.muhammet.entity.Student</class>
+        <class>com.muhammet.entity.Teacher</class>
 
 
         <properties>
@@ -22,7 +22,7 @@
                       value="org.postgresql.Driver" />
 
             <property name="jakarta.persistence.jdbc.url"
-                      value="jdbc:postgresql://localhost:5432/KursDB" />
+                      value="jdbc:postgresql://localhost:5432/Odev050DB" />
 
             <property name="jakarta.persistence.jdbc.user"
                       value="postgres" />
