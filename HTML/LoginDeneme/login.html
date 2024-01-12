@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        div{
+            margin-bottom: 5px;           
+        }
+        form{
+            margin-top: 100px;
+            width: 30%;
+            margin-left: 35%;
+            border: solid 1px maroon;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+ <form>
+        <div>
+            <label for="">Kullanıcı adı</label>
+        </div>
+        <div>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <div>
+            <label for="">Şifre</label>
+        </div>
+        <div>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <div>
+            <button onclick="login()" type="button">Giriş Yap</button>
+        </div>
+    </form>
+    <script>
+        function login(){
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            // http://localhost:9090/auth/login?username=muhammet&password=12345
+            fetch('http://localhost:9090/auth/login',{
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username,
+                    password
+                })
+            }).then(data=>data.json())
+            .then(data=>{
+                if(data)
+                    alert("Giriş Başarılı");
+                else
+                    alert('Kullanıcı adı ya da şifre hatalı');
+            });
+
+        }
+    </script>
+</body>
+</html>

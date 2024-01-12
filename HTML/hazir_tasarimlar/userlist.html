@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  
+</head>
+  <body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-1" style="border: solid 1px red;"></div>
+            <div class="col-10" style="border: solid 1px rgb(39, 205, 24);">
+            
+                <div class="row" id="user_list">  
+
+                </div>
+                
+            
+            </div>
+            <div class="col-1" style="border: solid 1px rgb(32, 26, 227); "></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+    // Burası JAvaScipt yazmak için kullanılan alandır.
+    console.log('Selam nasılsınız?');
+    let sayi1 = 4;
+    let sayi2 = 56;
+    let toplam = sayi1+sayi2;
+    console.log('iki sayının toplamı....: ', toplam);
+    
+    let rootDiv = document.getElementById('user_list');
+    // let, var, const
+  
+
+    // https://randomuser.me/api/?results=5
+
+    fetch('https://randomuser.me/api/?results=50') // bu sunucuya GET isteği atar ve bilgileri text olarak çeker
+    .then(data=> data.json()) // kendine gelen text içeriği JSON OBJECT e çevirir.
+    .then(data=>{ // ilgili data kullanılır.
+        console.log(data);
+        data.results.map(user=>{
+            console.log(user.name.first+' '+ user.name.last);
+            console.log(user.email);
+            console.log(user.picture.large); 
+            rootDiv.innerHTML += `
+                    <div class="col-3">
+                        <div class="card" style="margin: 1px; margin-top:10px">
+                            <img src="${user.picture.large}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">${user.name.first+' '+ user.name.last}</h5>
+                              <p class="card-text">mlamaya başlamış ilerleyen yıllarda 
+                                eliştirmeler yaparak kariyerine devam etmiştir.
+                              </p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item">${user.email}</li>                             
+                            </ul>                            
+                          </div>
+                    </div>
+    `;    
+   
+        });
+    });
+
+ 
+    </script>
+</body>
+</html>
